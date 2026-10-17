@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memory-agent-cli"
+version = "0.1.0"
+description = "CLI-бот с постоянной памятью через Groq и SQLite"
+requires-python = ">=3.11"
+dependencies = ["groq==1.7.0", "pydantic==2.14.1", "python-dotenv==1.2.4"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+memory-agent = "memory_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["memory_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
